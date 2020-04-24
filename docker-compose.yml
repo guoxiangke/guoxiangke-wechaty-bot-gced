@@ -13,4 +13,4 @@ services:
       - ./bot/autoReply.json:/usr/src/app/bot/autoReply.json
       - ./bot/roomAutoJoin.json:/usr/src/app/bot/roomAutoJoin.json
       - ./bot/schedule.json:/usr/src/app/bot/schedule.json
-      - :/usr/src/app/files/19_Psalm #4 local
+      - ./19_Psalm:/usr/src/app/files/19_Psalm #4 prod
