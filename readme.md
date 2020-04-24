@@ -18,13 +18,14 @@ bot有几个垂直领域的群，都不是群主，但是每个群每天都在�
     - [x] 新建或配置一个群（主人群0421），本群里的所有消息将转发给（除本群外）的所有群！
   - [x] 经典转发： 指定A群里的任意成员b的消息，转发到其他指定C、D、E..群里
   - [ ] UI + BE + 数据库配置
+  - [ ] 指定公众号消息的第X条消息转发到指定群里
 - 群挑战GCED
   - [ ] 进群发送欢迎语/群公告
   - [ ] 任意成员发送指令【GCED】开启本群挑战模式，发送欢迎语与挑战说明
     - [ ] 恭喜，您已成功为本群发起【xx挑战365】打卡学习任务。@ALL 如同意参与挑战，请24小时内回复指令【我接受】即可在每日排行榜看到你漂亮的身影！
   - [ ] 用户每日回复指令（模糊识别关键词）打卡
   - [ ] 每日凌晨 `5:00` 统计打卡情况并进行公布
-  - [ ] 每日早上 `8:00` 推送一条名人语录/挑战的系列内容
+  - [x] 定时发送系列内容
   - [ ] 打卡排行榜
 - 管理员功能
   - [ ] 查看当天未签到用户 (当天0点前)
@@ -33,7 +34,13 @@ bot有几个垂直领域的群，都不是群主，但是每个群每天都在�
   - [ ] 设置黑名单（移除放弃挑战的成员）
   - [ ] 所有指令可后台配置/正则匹配
 - Other
-  - [ ] 配置使用群ID/以防群改名字了
+  - [ ] 群名防篡改
+  - [x] 回复 群名称 拉你入群，默认开启，配置文件 ./bot/roomAutoJoin.json
+  - [x] 自定义关键词私聊 默认关闭，配置文件 ./bot/autoReply.json bot回复#on给filehelper开启
+      - [x] Text
+      - [x] Url
+      - [x] Contact
+      - [x] Attachment(含 Audio、Video、Image、Emoticon)
   - [ ] 多种挑战类型供发起挑战，为避免混乱，一个群只能开一种
     - [ ] GTED-读经
     - [ ] GTED-诗篇
@@ -50,8 +57,13 @@ vi .env
     WECHATY_PUPPET_PADPLUS_TOKEN=puppet_padplus_13f028f0cba*******
 
 # 设置转发规则
-copy forward.json.example forward.json
+copy ./bot/forward.json.example ./bot/forward.json
 vi forward.json
+
+
+# 配置可加入的群
+copy ./bot/roomAutoJoin.json.example ./bot/roomAutoJoin.json
+vi ./bot/roomAutoJoin.json
 ```
 
 

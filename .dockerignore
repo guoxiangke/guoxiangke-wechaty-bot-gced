@@ -2,6 +2,7 @@ node_modules
 npm-debug.log
 
 grace.memory-card.json
+forward.json
 
 avatar
 screenshot

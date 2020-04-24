@@ -1,0 +1,65 @@
+{
+    "data":[
+        {
+            "key":"test",
+            "reply":{
+                "type":"Text",
+                "content":"Hello, test reply"
+            }
+        },
+        {
+            "key":"mp3",
+            "reply":{
+                "type":"Audio",
+                "content":"/Users/dale/Downloads/Share/19_Psalm/19_059.mp3"
+            }
+        },
+        {
+            "key":"mp4",
+            "reply":{
+                "type":"Video",
+                "content":"/Users/xxx/Downloads/Share/PrayEveryday/videos/0102.mp4"
+            }
+        },
+        {
+            "key":"tu",
+            "reply":{
+                "type":"Image",
+                "content":"https://pic3.zhimg.com/v2-4485f718a93820d1b05e6a666d5b4bae_1200x500.jpg"
+            }
+        },
+        {
+            "key":"tu2",
+            "reply":{
+                "type":"Image",
+                "content":"/Users/xxx/Downloads/Share/PrayEveryday/images/0101.jpg"
+            }
+        },
+        {
+            "key":"at1",
+            "reply":{
+                "type":"Attachment",
+                "content":"https://cdn.xxx.ml/17_001.mp3"
+            }
+        },
+        {
+            "key":"who",
+            "reply":{
+                "type":"Contact",
+                "content":"天空蔚蓝"
+            }
+        },
+        {
+            "key":"link",
+            "reply":{
+                "type":"Url",
+                "content":{
+                    "description" : "WeChat Bot SDK for Individual Account",
+                    "thumbnailUrl": "https://avatars0.githubusercontent.com/u/25162437?s=200&v=4",
+                    "title"       : "Welcome to Wechaty",
+                    "url"         : "https://github.com/chatie/wechaty"
+                }
+            }
+        }
+    ]
+}
