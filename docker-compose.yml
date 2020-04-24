@@ -8,4 +8,6 @@ services:
     restart: unless-stopped
     volumes:
       - ./.env:/usr/src/app/.env
-      - ./forward.json:/usr/src/app/forward.json
+      - ./bot/forward.json:/usr/src/app/bot/forward.json
+      - ./bot/autoReply.json:/usr/src/app/bot/autoReply.json
+      - ./bot/roomAutoJoin.json:/usr/src/app/bot/roomAutoJoin.json

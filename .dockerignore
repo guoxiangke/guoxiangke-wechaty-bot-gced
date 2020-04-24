@@ -2,11 +2,10 @@ node_modules
 npm-debug.log
 
 grace.memory-card.json
-forward.json
+bot/*.json
 
 avatar
 screenshot
 
 docs
-listeners
 utils
