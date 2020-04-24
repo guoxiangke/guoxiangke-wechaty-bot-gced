@@ -46,7 +46,7 @@ async function onMessage (msg: Message, bot: Wechaty) {
 
     // 经典转发
     // todo Redis/DB + UI config!
-    const forwards  = require('./forward.json').data
+    const forwards  = require('../forward.json').data
 
     forwards.forEach(forward => {
       const destinations = forward.destinations

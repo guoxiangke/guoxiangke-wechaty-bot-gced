@@ -1,0 +1,20 @@
+{
+    "data":[
+        {
+            "name":"psalm",
+            "cron":"26 21 * * *",
+            "room":"主人0421",
+            "to":[
+                {"value":"主人0421","type":"room"},
+                {"value":"天空蔚蓝","type":"name"},
+                {"value":"天空蔚蓝","type":"alias"}
+            ],
+            "count":150,
+            "from": "2020-2-25",
+            "path":"/Users/dale/Downloads/Share/19_Psalm/19_",
+            "pad":3,
+            "type":".mp3"
+            
+        }
+    ]
+}

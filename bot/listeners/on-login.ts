@@ -1,5 +1,6 @@
 import { log, Contact, Wechaty, Room } from 'wechaty'
 const { FileBox }  = require('file-box')
+const moment = require('moment')
 
 async function onLogin (user: Contact, bot: Wechaty) {
   log.info(`${user} login`)
@@ -10,27 +11,35 @@ async function onLogin (user: Contact, bot: Wechaty) {
   // const room = bot.Room.load(roomId)
   // await room.sync()
   const cron = require('node-schedule')
-  cron.scheduleJob('25 10 * * *', () => sendDaily(bot))
+
+  const tasks  = require('../schedule.json').data
+  tasks.forEach(task => {
+    cron.scheduleJob(task.cron, () => initTask(task, bot))
+  });
 }
 
-async function sendDaily (bot: Wechaty) {
-  const TOPIC = '主人0421' // 诗篇群发源
-  const COUNT = 150
-  const TYPE = '.mp3'
-  let PATH = '/Users/dale/Downloads/Share/19_Psalm/19_'
-  // get the room by topic
-  const room: Room | null = await bot.Room.find({ topic: TOPIC })
-  if (!room) return
+async function initTask (task: any, bot: Wechaty) {
+  log.warn(JSON.stringify(task))
+  const startDate = moment(task.from, 'YYYY-M-DD')
+  const daysDiff = moment().diff(startDate, 'days')
+  const current = String(daysDiff % task.count).padStart(3, '0')
+  const fileBox = FileBox.fromFile(`${task.path}${current}${task.type}`)
 
-  let moment = require('moment')
-  let startDate = moment('2020-4-1 0:0:00', 'YYYY-M-DD HH:mm:ss')
-  const FROM = 36 + COUNT // 诗篇总共150篇 001.mp3
-  let daysDiff = moment().diff(startDate, 'days')
-  const current = String((FROM + daysDiff) % COUNT).padStart(3, '0')
-  log.info(`scheduleJob: room:${room} Current:${current}`)
-  // '/Users/dale/Downloads/Share/19_Psalm/19_059.mp3'
-  const fileBox = FileBox.fromFile(`${PATH}${current}${TYPE}`)
-  return room.say(fileBox)
+  task.to.forEach(async el => {
+    let receiver: Room | Contact | null = null
+    if(el.type === 'room'){
+      // get the room by topic
+      receiver = await bot.Room.find({ topic: `${el.value}` })
+    }else if(el.type === 'name'){
+      receiver = await bot.Contact.find({name:`${el.value}`})
+    }else if(el.type === 'alias'){
+      receiver = await bot.Contact.find({alias:`${el.value}`})
+    }
+    if (!receiver) return
+      
+    log.error(`scheduleJob: receiver:${receiver} Current:${current}`)
+    return receiver.say(fileBox)
+  });
 }
 
 module.exports = onLogin
