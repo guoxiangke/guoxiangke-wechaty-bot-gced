@@ -84,3 +84,8 @@ docker-compose up -d
 ```
 
 
+## 问题
+
+FileBox.fromUrl(https://1.1.1.1/1.mp3) 是一个链接地址！
+FileBox.fromUrl(https://1.1.1.1/2.mp4) 是一个mp4文件
+FileBox.fromUrl(https://1.1.1.1/3.jpg) 是一个图片

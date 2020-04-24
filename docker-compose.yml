@@ -7,7 +7,10 @@ services:
       dockerfile: "Dockerfile"
     restart: unless-stopped
     volumes:
+      - ./bot:/usr/src/app/bot # 4dev
       - ./.env:/usr/src/app/.env
       - ./bot/forward.json:/usr/src/app/bot/forward.json
       - ./bot/autoReply.json:/usr/src/app/bot/autoReply.json
       - ./bot/roomAutoJoin.json:/usr/src/app/bot/roomAutoJoin.json
+      - ./bot/schedule.json:/usr/src/app/bot/schedule.json
+      - :/usr/src/app/files/19_Psalm #4 local

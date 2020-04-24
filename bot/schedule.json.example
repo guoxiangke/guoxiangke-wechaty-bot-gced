@@ -2,18 +2,51 @@
     "data":[
         {
             "name":"psalm",
-            "cron":"26 21 * * *",
-            "room":"主人0421",
+            "cron":"0 8 * * *",
             "to":[
-                {"value":"主人0421","type":"room"},
-                {"value":"天空蔚蓝","type":"name"},
-                {"value":"天空蔚蓝","type":"alias"}
+                {"value":"诗篇群发源","type":"room"}
             ],
-            "count":150,
-            "from": "2020-2-25",
-            "path":"/Users/dale/Downloads/Share/19_Psalm/19_",
-            "pad":3,
-            "type":".mp3"
+            "type":"Audio//todo Text",
+            "uri": "/usr/src/app/files/19_Psalm/19_${current}.mp3",
+            "by":"count",
+            "current":{
+                "count":150,
+                "pad":{
+                    "maxLength":0,
+                    "fillString":"0"
+                },
+                "from": "2020-2-25"
+            }
+            
+        },
+        {
+            "name":"psalm",
+            "cron":"38 6 * * *",
+            "to":[
+                {"value":"天空蔚蓝","type":"name"}
+            ],
+            "type":"Audio//todo Text",
+            "uri": "/Users/xxx/Downloads/Share/19_Psalm/19_${current}.mp3",
+            "by":"count",
+            "current":{
+                "count":150,
+                "pad":{
+                    "maxLength":3,
+                    "fillString":"0"
+                },
+                "from": "2020-2-25"
+            }
+            
+        },
+        {
+            "name":"每日祈祷",
+            "cron":"38 6 * * *",
+            "to":[
+                {"value":"天空蔚蓝","type":"name"}
+            ],
+            "type":"Video",
+            "by":"date",
+            "uri":"https://ybzx.xxx.ml/PrayEveryday/videos/${current}.mp4"
             
         }
     ]

@@ -4,7 +4,7 @@
   "description": "remind group task(challenge) everyday",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node bot/index.ts",
+    "start": "WECHATY_LOG=info ts-node bot/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
