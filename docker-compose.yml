@@ -7,6 +7,8 @@ services:
       dockerfile: "Dockerfile"
     restart: unless-stopped
     volumes:
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
       - ./bot:/usr/src/app/bot # 4dev
       - ./.env:/usr/src/app/.env
       - ./bot/forward.json:/usr/src/app/bot/forward.json
