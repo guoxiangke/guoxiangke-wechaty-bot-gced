@@ -9,6 +9,7 @@ services:
     environment:
       - TZ=Asia/Shanghai
     volumes:
+      # 把./bot排除在外，这样，每次修改代码，不用重复构建镜像，直接使用cache
       - ./bot:/usr/src/app/bot
       - ./.env:/usr/src/app/.env
       # - ./bot/config:/usr/src/app/bot/config

@@ -2,7 +2,7 @@ var levelup = require('levelup')
 var leveldown = require('leveldown')
 
 // 1) Create our store
-let db = levelup(leveldown('./rocksdb/data'))
+let db = levelup(leveldown('../../rocksdb'))
 
 let f = async function (db){
 // 2) Put a key & value

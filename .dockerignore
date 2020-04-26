@@ -2,6 +2,8 @@ node_modules
 npm-debug.log
 
 grace.memory-card.json
+
+# 把./bot排除在外，这样，每次修改代码，不用重复构建镜像，直接使用cache
 bot
 
 screenshot

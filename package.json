@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "WECHATY_LOG=verbose ts-node bot/index.ts",
     "start": "WECHATY_LOG=info ts-node bot/index.ts",
-    "test": "ts-node test/test.ts"
+    "test": "ts-node bot/test/rocksdb.ts"
   },
   "author": "",
   "license": "ISC",
