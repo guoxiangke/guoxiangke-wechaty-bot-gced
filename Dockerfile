@@ -14,7 +14,6 @@ COPY . /usr/src/app
 RUN set -ex; \
   apt-get update; \
   apt-get install -y --no-install-recommends \
-    vim \
     ffmpeg \
   ; \
   \
