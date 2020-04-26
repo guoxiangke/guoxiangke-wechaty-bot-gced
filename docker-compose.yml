@@ -9,7 +9,7 @@ services:
     environment:
       - TZ=Asia/Shanghai
     volumes:
-      - ./bot:/usr/src/app/bot # 4dev
+      - ./bot:/usr/src/app/bot
       - ./.env:/usr/src/app/.env
-      - ./bot/config:/usr/src/app/bot/config
-      - ./19_Psalm:/usr/src/app/files/19_Psalm #4 prod
+      # - ./bot/config:/usr/src/app/bot/config
+      - ./19_Psalm:/usr/src/app/bot/files/19_Psalm # resources(mp3) for one cron task
