@@ -2,10 +2,8 @@ node_modules
 npm-debug.log
 
 grace.memory-card.json
-bot/*.json
+bot/config/
 
-avatar
 screenshot
 
 docs
-utils

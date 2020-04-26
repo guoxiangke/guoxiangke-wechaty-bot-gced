@@ -1,12 +1,10 @@
 node_modules
 grace.memory-card.json
-bot/*.json
+bot/config/*.json
 .env
 
-avatar
 screenshot
 
 docs
-utils
 deploy.sh
 
