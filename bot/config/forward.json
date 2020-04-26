@@ -1,0 +1,39 @@
+{
+    "data": [
+        {
+            "sources": [
+                {
+                    "topic": "诗篇群发源",
+                    "senders": [
+                        {"alias":"扎根（鲍弟兄）"},
+                        {"alias":"AI机器人"},
+                        {"alias":"天空蔚蓝"}
+                    ]
+                }
+            ],
+            "destinations": [
+                {"topic": "活水工人"},
+                {"topic": "西三旗交流群"},
+                {"topic": "西罗亚小组"},
+                {"topic": "西奈山jh"},
+                {"topic": "活水"}
+            ]
+        },
+        {
+            "sources": [
+                {
+                    "topic": "主人0421",
+                    "senders":[
+                        {"alias":"天空蔚蓝"},
+                        {"alias":"AI机器人"}
+                    ]
+                }
+            ],
+            "destinations": [
+                {
+                    "topic": "Source群"
+                }
+            ]
+        }
+    ]
+}

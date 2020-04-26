@@ -6,13 +6,10 @@ services:
       context: .
       dockerfile: "Dockerfile"
     restart: unless-stopped
+    environment:
+      - TZ=Asia/Shanghai
     volumes:
-      - "/etc/timezone:/etc/timezone:ro"
-      - "/etc/localtime:/etc/localtime:ro"
       - ./bot:/usr/src/app/bot # 4dev
       - ./.env:/usr/src/app/.env
-      - ./bot/forward.json:/usr/src/app/bot/forward.json
-      - ./bot/autoReply.json:/usr/src/app/bot/autoReply.json
-      - ./bot/roomAutoJoin.json:/usr/src/app/bot/roomAutoJoin.json
-      - ./bot/schedule.json:/usr/src/app/bot/schedule.json
+      - ./bot/config:/usr/src/app/bot/config
       - ./19_Psalm:/usr/src/app/files/19_Psalm #4 prod

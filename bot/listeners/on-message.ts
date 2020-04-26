@@ -1,8 +1,13 @@
 import { log, Contact, Message, Wechaty, UrlLink } from 'wechaty'
-// Config.autoReply 全局控制变量
-import { Config } from '../config'
-// Config.autoReply = true
-async function onMessage (msg: Message, bot: Wechaty) {
+// Global.autoReply 全局控制变量
+import { Vars as Global } from '../global-var'
+const bot: Wechaty = Global.bot
+// 关键词聊天（非群聊）默认开启，bot回复#off给filehelper关闭
+Global.autoReply = true
+const CONFIG_JSON_PATH = '../config'
+
+
+async function onMessage (msg: Message) {
   log.info(msg.toString())
   if (msg.age() > 60) {
     log.info('Message discarded because its TOO OLD(than 1 minute)')
@@ -46,7 +51,7 @@ async function onMessage (msg: Message, bot: Wechaty) {
 
     // 经典转发
     // todo Redis/DB + UI config!
-    const forwards  = require('../forward.json').data
+    const forwards  = require(`${CONFIG_JSON_PATH}/forward.json`).data
 
     forwards.forEach(forward => {
       const destinations = forward.destinations
@@ -81,13 +86,9 @@ async function onMessage (msg: Message, bot: Wechaty) {
       const keyword = text.toLowerCase().replace('#', '')// #On #off
       switch (keyword) {
         case 'on':
-          Config.autoReply = true
-          await filehelper.say('Success: autoReply ON')
-          break
-
         case 'off':
-          Config.autoReply = false
-          await filehelper.say('Success: autoReply OFF')
+          Global.autoReply = !Global.autoReply
+          await filehelper.say(`autoReply: ${Global.autoReply}`)
           break
 
         default:
@@ -99,8 +100,8 @@ async function onMessage (msg: Message, bot: Wechaty) {
     if (msg.self()) return
     // 匹配用户发的消息开始
     // 完全匹配模式的关键词回复配置 autoReply.json
-    if (Config.autoReply) {
-      const autoReplyConfig  = require('../autoReply.json').data
+    if (Global.autoReply) {
+      const autoReplyConfig  = require(`${CONFIG_JSON_PATH}/autoReply.json`).data
       autoReplyConfig.forEach(async element => {
         if (text === element.key) { // 用户回复的关键词 == 设定的关键词
           // @see import { MessageType } from 'wechaty-puppet'
@@ -149,7 +150,7 @@ async function onMessage (msg: Message, bot: Wechaty) {
     }
 
     // 关键词入群，按群名
-    const rooms  = require('../roomAutoJoin.json').data
+    const rooms  = require(`${CONFIG_JSON_PATH}/roomAutoJoin.json`).data
     rooms.forEach(async room => {
       if (text === room.topic) { // 用户回复的关键词 == 群名
         const myRoom = await bot.Room.find({ topic: room.topic })

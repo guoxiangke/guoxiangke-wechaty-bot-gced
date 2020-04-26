@@ -1,0 +1,64 @@
+{
+    "data":[
+        {
+            "name":"psalm",
+            "cron":"30 8 * * *",
+            "to":[
+                {"type":"room","value":"诗篇群发源"}
+            ],
+            "type":"Audio//todo Text",
+            "uri": "/usr/src/app/files/19_Psalm/19_${current}.mp3",
+            "by":"count",
+            "current":{
+                "count":150,
+                "pad":{
+                    "maxLength":3,
+                    "fillString":"0"
+                },
+                "from": "2020-2-25"
+            }
+            
+        },
+        {
+            "name":"每日祈祷",
+            "cron":"30 20 * * *",
+            "to":[
+                {"type":"room","value":"诗篇群发源"}
+            ],
+            "type":"Video",
+            "by":"date",
+            "uri":"https://ybzx.51share.ml/PrayEveryday/videos/${current}.mp4"
+            
+        },
+        {
+            "name":"psalm",
+            "cron":"29 9 * * *",
+            "to":[
+                {"value":"天空蔚蓝","type":"name"}
+            ],
+            "type":"Audio//todo Text",
+            "uri": "/Users/dale/Downloads/Share/19_Psalm/19_${current}.mp3",
+            "by":"count",
+            "current":{
+                "count":150,
+                "pad":{
+                    "maxLength":3,
+                    "fillString":"0"
+                },
+                "from": "2020-2-25"
+            }
+            
+        },
+        {
+            "name":"每日祈祷",
+            "cron":"14 9 * * *",
+            "to":[
+                {"value":"天空蔚蓝","type":"name"}
+            ],
+            "type":"Video",
+            "by":"date",
+            "uri":"https://ybzx.51share.ml/PrayEveryday/videos/${current}.mp4"
+            
+        }
+    ]
+}
